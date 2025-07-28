@@ -161,74 +161,77 @@
             border-left: 3px solid #ff69b4;
         }
         
-        /* VS Code Editor */
-        .code-editor {
-            background: #1e1e1e;
-            border-radius: 8px;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 50px auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .editor-header {
-            background: #252526;
-            padding: 8px 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .editor-dots {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .editor-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .editor-dot.red { background: #ff5f56; }
-        .editor-dot.yellow { background: #ffbd2e; }
-        .editor-dot.green { background: #27c93f; }
-        
-        .editor-title {
-            margin-left: 15px;
-            font-family: monospace;
-            color: #969696;
-            font-size: 0.9rem;
-        }
-        
-        .editor-content {
-            padding: 20px;
-            font-family: 'Courier New', monospace;
-            color: #d4d4d4;
-            position: relative;
-            min-height: 200px;
-        }
-        
-        .code-line {
-            margin-bottom: 10px;
-            white-space: pre;
-            overflow: hidden;
-        }
-        
-        .code-keyword { color: #569cd6; }
-        .code-string { color: #ce9178; }
-        .code-comment { color: #6a9955; }
-        .code-number { color: #b5cea8; }
-        .code-operator { color: #d4d4d4; }
-        
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: #fff;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-        
+       /* VS Code Editor */
+.code-editor {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.editor-header {
+    background: #252526;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.editor-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.editor-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.editor-dot.red { background: #ff5f56; }
+.editor-dot.yellow { background: #ffbd2e; }
+.editor-dot.green { background: #27c93f; }
+
+.editor-title {
+    margin-left: 15px;
+    font-family: monospace;
+    color: #969696;
+    font-size: 0.9rem;
+}
+
+.editor-content {
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    color: #d4d4d4;
+    position: relative;
+    min-height: 200px;
+    white-space: pre-wrap; /* Changed from pre to pre-wrap */
+    overflow: visible; /* Changed from hidden to visible */
+    word-wrap: break-word; /* Added to handle long lines */
+}
+
+.code-line {
+    margin-bottom: 10px;
+    white-space: pre-wrap; /* Changed from pre to pre-wrap */
+    overflow: visible; /* Changed from hidden to visible */
+    word-wrap: break-word; /* Added to handle long lines */
+}
+
+.code-keyword { color: #569cd6; }
+.code-string { color: #ce9178; }
+.code-comment { color: #6a9955; }
+.code-number { color: #b5cea8; }
+.code-operator { color: #d4d4d4; }
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #fff;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+} 
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -674,20 +677,26 @@
             const message = document.getElementById('puzzle-message');
             
             // Set initial positions (scattered)
-            document.getElementById('piece1').style.transform = 'translate(-50px, -50px)';
-            document.getElementById('piece2').style.transform = 'translate(50px, -50px)';
-            document.getElementById('piece3').style.transform = 'translate(-50px, 50px)';
-            document.getElementById('piece4').style.transform = 'translate(50px, 50px)';
-            
-            // Make pieces draggable
-            pieces.forEach(piece => {
+            pieces.forEach((piece, index) => {
+                piece.style.position = 'absolute';
+                piece.dataset.originalLeft = piece.style.left;
+                piece.dataset.originalTop = piece.style.top;
+                
+                // Scatter pieces randomly around the board
+                const x = Math.random() * 200 - 50;
+                const y = Math.random() * 200 - 50;
+                piece.style.transform = `translate(${x}px, ${y}px)`;
+                
+                // Make pieces draggable
                 piece.draggable = true;
                 
                 // Set background to show part of the heart
                 const clipPath = getPieceClipPath(piece.id);
                 piece.style.clipPath = clipPath;
                 piece.style.backgroundColor = '#ff69b4';
-                
+            });
+
+            pieces.forEach(piece => {
                 piece.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', piece.id);
                     setTimeout(() => piece.style.opacity = '0.4', 0);
@@ -709,12 +718,12 @@
                 
                 // Calculate drop position relative to board
                 const rect = board.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                const x = e.clientX - rect.left - 75; // center the piece
+                const y = e.clientY - rect.top - 75; // center the piece
                 
                 // Position piece
-                piece.style.left = `${x - 75}px`;
-                piece.style.top = `${y - 75}px`;
+                piece.style.left = `${x}px`;
+                piece.style.top = `${y}px`;
                 piece.style.transform = 'none';
                 
                 // Check if puzzle is complete
@@ -741,28 +750,17 @@
             
             function isPuzzleComplete() {
                 // Check if all pieces are close to their correct positions
-                const piece1 = document.getElementById('piece1');
-                const piece2 = document.getElementById('piece2');
-                const piece3 = document.getElementById('piece3');
-                const piece4 = document.getElementById('piece4');
+                const tolerance = 30; // pixels
                 
-                const piece1Left = Math.abs(parseInt(piece1.style.left));
-                const piece1Top = Math.abs(parseInt(piece1.style.top));
-                
-                const piece2Left = Math.abs(parseInt(piece2.style.left) - 150);
-                const piece2Top = Math.abs(parseInt(piece2.style.top));
-                
-                const piece3Left = Math.abs(parseInt(piece3.style.left));
-                const piece3Top = Math.abs(parseInt(piece3.style.top) - 150);
-                
-                const piece4Left = Math.abs(parseInt(piece4.style.left) - 150);
-                const piece4Top = Math.abs(parseInt(piece4.style.top) - 150);
-                
-                // Allow 20px margin of error for each piece
-                return piece1Left < 20 && piece1Top < 20 &&
-                       piece2Left < 20 && piece2Top < 20 &&
-                       piece3Left < 20 && piece3Top < 20 &&
-                       piece4Left < 20 && piece4Top < 20;
+                return Array.from(pieces).every(piece => {
+                    const currentLeft = parseInt(piece.style.left);
+                    const currentTop = parseInt(piece.style.top);
+                    const originalLeft = parseInt(piece.dataset.originalLeft);
+                    const originalTop = parseInt(piece.dataset.originalTop);
+                    
+                    return Math.abs(currentLeft - originalLeft) < tolerance && 
+                           Math.abs(currentTop - originalTop) < tolerance;
+                });
             }
             
             function createConfetti() {
