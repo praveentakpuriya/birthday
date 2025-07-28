@@ -1,65 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Happy Birthday Shweta</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-<link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="css/style.css">
-<meta name="theme-color" content="#F26B38">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shanu 💖</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'RomanticFont';
+            src: url('assets/fonts/DancingScript-Regular.ttf') format('truetype');
+        }
+        
+        body {
+            font-family: 'RomanticFont', cursive;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow-x: hidden;
+            background: #0a0a1a;
+            cursor: url('assets/heart-cursor.png'), auto;
+        }
+        
+        /* Starry Background */
+        #starry-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, #000428, #004e92);
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+            border-radius: 50%;
+            animation: shoot linear infinite;
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            70%, 100% {
+                transform: translateX(300px) translateY(150px);
+                opacity: 0;
+            }
+        }
+        
+        /* Header Section */
+        .birthday-header {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .birthday-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            }
+            to {
+                text-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4, 0 0 35px #ff69b4;
+            }
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(10deg); }
+        }
+        
+        /* Love Story Section */
+        .love-story {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff69b4, #9400d3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff69b4;
+            border: 3px solid #fff;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 105, 180, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #ff69b4;
+        }
+        
+        /* VS Code Editor */
+        .code-editor {
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .editor-header {
+            background: #252526;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .editor-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .editor-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .editor-dot.red { background: #ff5f56; }
+        .editor-dot.yellow { background: #ffbd2e; }
+        .editor-dot.green { background: #27c93f; }
+        
+        .editor-title {
+            margin-left: 15px;
+            font-family: monospace;
+            color: #969696;
+            font-size: 0.9rem;
+        }
+        
+        .editor-content {
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            color: #d4d4d4;
+            position: relative;
+            min-height: 200px;
+        }
+        
+        .code-line {
+            margin-bottom: 10px;
+            white-space: pre;
+            overflow: hidden;
+        }
+        
+        .code-keyword { color: #569cd6; }
+        .code-string { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        .code-number { color: #b5cea8; }
+        .code-operator { color: #d4d4d4; }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: #fff;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Heart Puzzle */
+        .puzzle-container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        
+        .puzzle-board {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+            background: rgba(255, 105, 180, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .puzzle-piece {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: 300px 300px;
+            cursor: move;
+            transition: transform 0.2s;
+            z-index: 1;
+        }
+        
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .puzzle-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #ff69b4;
+        }
+        
+        /* Heart shape for puzzle */
+        .heart-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, #ff69b4, #9400d3);
+            clip-path: path('M150,75 C165,45 195,35 225,55 C255,75 270,105 240,135 C210,165 150,195 150,195 C150,195 90,165 60,135 C30,105 45,75 75,55 C105,35 135,45 150,75 Z');
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        /* Secret Button */
+        .secret-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 105, 180, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff69b4;
+            font-size: 0.8rem;
+            z-index: 100;
+        }
+        
+        .secret-reveal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        
+        .secret-reveal.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .secret-content {
+            text-align: center;
+            max-width: 500px;
+            padding: 30px;
+            background: rgba(255, 105, 180, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            opacity: 0;
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 105, 180, 0.3);
+            border-radius: 50px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .music-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ff69b4;
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline::before {
+                left: 10px;
+            }
+            
+            .timeline-item::before {
+                left: -25px;
+                width: 15px;
+                height: 15px;
+            }
+            
+            .code-editor {
+                margin: 30px 15px;
+            }
+            
+            .puzzle-board {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .puzzle-piece {
+                width: 125px;
+                height: 125px;
+            }
+        }
+        
+        /* Heart Cursor Trail */
+        .heart-trail {
+            position: absolute;
+            pointer-events: none;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+            background-size: contain;
+            z-index: 9999;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation: fadeOut 1s forwards;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+        }
+    </style>
 </head>
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div id="card">
-<div id="card-inside">
-<div class="wrap wishesFont">
-    <center>
-      <p>Wishing you a very Happy Birthday Shweta! May god bless you.</p>
-      <p> "Happy birthday to my rock-solid, laughter-sharing, adventure-seeking, and forever-supportive best friend! May this special day be filled with joy, love, and all the wonderful things life has to offer. Cheers to many more years of friendship and unforgettable moments together!"
-       </p>
-      </center>
-<p class="signed">With Best Wishes 
-    <br> Praveen Takpuriya
-  </p>
-  
-</div>
-</div>
-<div id="card-front">
-<div class="wrap">
-<h1>Happy Birthday</h1>
-<div class="cake_and_velas">
-<div class="velas">
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
-</div>
-<svg id="cake" version="1.1" x="0px" y="0px" width="290px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve"><path fill="#a88679" d="M173.667-13.94H26.333c-3.999 0-4-16.002 0-16.002h147.334c4 0 4.001 16.002 0 16.002z"><animate id="e" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1" begin="a.end" dur="0.3s" fill="freeze" values="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z ; M173.667,411.567c-47.995,12.408-102.955,12.561-147.334,0 c-3.848-1.089-0.189-16.089,3.661-15.002c44.836,12.66,90.519,12.753,139.427,0.07 C173.293,395.631,177.541,410.566,173.667,411.567z ; M173.667,427.569c-49.795,0-101.101,0-147.334,0c-3.999,0-4-16.002,0-16.002 c46.385,0,97.539,0,147.334,0C177.668,411.567,177.667,427.569,173.667,427.569z"/></path><path fill="#8b6a60" d="M100-178.521a3.364 3.364 0 0 1 3.364 3.363V-13.75a3.364 3.364 0 1 1-6.728 0v-40.607-76.575-44.226a3.364 3.364 0 0 1 3.364-3.363z"><animate id="a" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="b.end" dur="0.5s" fill="freeze" values="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227 c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521 L100-178.521z ; M100,267.257c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227 c0,19.143,0,57.43,0,76.574c0,10.151,0,40.606,0,40.606c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364 c0,0,0-30.455,0-40.606c0-19.145,0-57.432,0-76.576c0-11.057,0-44.225,0-44.225C96.636,268.763,98.142,267.257,100,267.257 L100,267.257z ; M93.928,405.433c-0.655,6.444-0.102,9.067,2.957,11.798c0,0,8.083,5.571,16.828,3.503 c18.629-4.406,43.813,6.194,50.792,7.791c14.75,3.375,9.162,6.867,9.162,6.867c-2.412,2.258-58.328,0-73.667,0l0,0 c-1.858,0-69.995,2.133-73.667,0c0,0-3.337-2.439,6.172-5.992c11.375-4.25,52.875,8.822,47.139-9.442 c-6.333-20.167,5.226-21.514,5.226-21.514c3.435-0.915,12.78-6.663,10.923-0.546L93.928,405.433z ; M102.242,427.569c5.348,0,14.079,0,17.462,0c0,0,17.026,0,27.504,0 c19.143,0,20.39-3.797,26.459,0c3,1.877,0,7.823,0,7.823c-2.412,2.258-58.328,0-73.667,0l0,0c-1.858,0-67.187,0-73.667,0 c0,0-4.125-4.983,0-7.823c5.201-3.58,16.085,0,23.725,0c8.841,0,20.762,0,20.762,0c3.686,0,8.597,0,19.511,0H102.242z"/></path><path fill="#a88679" d="M173.667-15.929H26.333c-3.999 0-4-16.002 0-16.002h147.334c4 0 3.999 16.002 0 16.002z"><animate id="b" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1" begin="c.end" dur="0.5s" fill="freeze" values="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002 c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z ; M173.434,445.393c-47.269,8.001-105.245,8.001-147.334,0c-3.929-0.747-0.692-16.543,3.243-15.824 c43.828,8.001,92.165,8.001,140.739,0C174.029,428.918,177.377,444.726,173.434,445.393z ; M173.667,449.514c-47.576-5.454-102.799-5.744-147.333,0c-3.966,0.512-3.938-15.297,0-16.002 c43.683-7.823,97.646-8.026,147.333,0C177.616,434.15,177.642,449.969,173.667,449.514z ; M173.667,451.394c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002 c44.697,0,96.586,0,147.334,0C177.667,435.392,177.668,451.394,173.667,451.394z"/></path><path fill="#8b6a60" d="M101.368-73.685V-6.35c0 1.753-2.958 1.847-2.958 0v-30.401-8.305-28.628c.001-2.199 2.958-1.908 2.958-.001z"><animate id="c" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1" begin="d.end" dur="0.5s" fill="freeze" values="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512 c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628 C98.411-75.883,101.368-75.592,101.368-73.685z ; M101.368,350.885c0,12.164,0,65.18,0,78.518c0,22.703,0-33.66,0-11.695c0,14.48,0,28.232,0,40.512 c0,1.753-2.958,1.847-2.958,0c0-12.68,0-26.277,0-40.402c0-21.982,0,31.66,0,11.695c0-13.027,0-65.992,0-78.627 C98.411,348.686,101.368,348.977,101.368,350.885z ; M128.38,447.567c37.626,6.312,39.303,13.658,26.833,12.833c-22.653-1.499-13.636-0.831-23.302-0.831 c-14.48,0-17.884,0-30.163,0c-2.087,0-2.068,0-3.915,0c-13.333,0-8.963,0-23.088,0c-11.668,0-14.062,5.995-27.532,1.164 c-12.629-4.529,38.667-3.167,46.833-17.333C100.077,432.94,105.546,443.736,128.38,447.567z ; M173.667,451.394c2.875,0,2.997,9.257,0,9.131c-22.662-0.956-32.09-0.956-41.756-0.956 c-14.48,0-17.884,0-30.163,0c-2.087,0-2.068,0-3.915,0c-13.333,0-8.963,0-23.088,0c-11.668,0-34.99-0.294-48.412,1.831 c-4.109,0.65-3.01-10.006,0-10.006C37.129,451.394,149.379,451.394,173.667,451.394z"/></path><path fill="#a88679" d="M173.667 21.571H26.333c-4 0-4-16.002 0-16.002h147.334c4.001 0 4 16.002 0 16.002z"><animate id="d" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1" begin="1s" dur="0.8s" fill="freeze" values="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0 C177.668,5.569,177.667,21.571,173.667,21.571z ; M173.667,459.569c-33.197,16.002-110.782,16.002-147.334,0c-3.664-1.604,1.614-15.617,5.337-14.153 c40.702,16.002,94.289,16.104,136.505,0.103C171.917,444.1,177.271,457.832,173.667,459.569z ; M171.817,475.571c-39.361-3.001-105.438-2.571-143.556,0c-3.991,0.27-7.377-14.736-3.387-15.014 c41.553-2.888,104.421-3.121,150.51-0.233C179.378,460.574,175.806,475.875,171.817,475.571z ; M171.817,459.564c-38.8-12.188-104.504-13.762-143.556,0c-3.772,1.329-7.961-12.604-4.178-13.905 c40.864-14.064,105.114-15.52,151.918-0.973C179.822,445.874,175.634,460.762,171.817,459.564z ; M173.667,475.571c-46.376-5.005-105.924-4.003-147.334,0c-3.981,0.385-3.479-15.421,0.479-16.002 c43.087-6.327,97.705-7.083,146.855,0.438C177.621,460.613,177.644,476,173.667,475.571z ; M173.667,474.117c-46.376,1.866-105.638,2.01-147.334,0c-3.995-0.192-3.52-16.144,0.479-16.002 c43.794,1.55,96.341,1.541,145.723,0C176.532,457.99,177.663,473.956,173.667,474.117z ; M173.667,475.571c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002c43.566,0,97.96,0,147.334,0 C177.667,459.569,177.666,475.571,173.667,475.571z"/></path><path fill="#fefae9" d="M104.812 113.216c0 3.119-2.164 5.67-4.812 5.67-2.646 0-4.812-2.551-4.812-5.67V90.841 70.273v-29.33-22.092V5.67C95.188 2.551 97.353 0 100 0c2.648 0 4.812 2.551 4.812 5.669V113.216z"><animate attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="e.end" dur="2s" fill="freeze" values="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375	c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181	C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711	c0,7.618,0,22.854,0,30.472c0,4.952,0,14.854,0,19.807C104.812,96.292,104.812,107.576,104.812,113.216z ; M104.812,405.897c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.376	c0-5.143,0-15.426,0-20.568c0-7.332,0-21.997,0-29.33c0-5.522,0-16.568,0-22.092c0-3.295,0-9.885,0-13.181	c0-3.118,2.165-5.669,4.812-5.669c2.648,0,4.812,2.551,4.812,5.669c0,3.247,0,9.743,0,12.991c0,5.428,0,16.283,0,21.711	c0,7.618,0,22.854,0,30.473c0,4.951,0,14.854,0,19.807C104.812,388.972,104.812,400.256,104.812,405.897z ; M111.873,411.567c-3.119,0-9.226,0-11.874,0c-2.646,0-7.748,0-10.867,0c-7.086,0-12.698,0-18.292,0	c-6.592,0-12.871,7.371-19.166,3.008c-10.043-6.961-7.776-10.169,2.991-17.745c12.61-8.873,27.713,1.994,25.919-7.531	c-2.589-13.742,11.008-14.513,11.365-17.789c0.441-4.051,4.235-11.107,8.051-8.175c3.113,2.393,1.007,8.008,0,13.159	c-1.871,9.569,8.058,2.113,9.494,14.155c2.592,21.732,21.184-0.675,29.309,7.976c5.216,5.553,18.413,5.552,15.426,12.942	c-3.131,7.745-15.825-4.369-23.8,2.903C126.261,418.271,118.301,411.567,111.873,411.567z ; M111.873,411.567c-3.119,0-9.226,0-11.874,0c-2.646,0-9.734,4.069-12.853,4.069	c-7.086,0-10.712-4.069-16.306-4.069c-6.592,0-12.12,6.013-19.166,3.008c-7.053-3.008-7.458,2.026-18.659,1.165	c-6.832-0.525-7.522-3.034-7.533-6.265c-0.037-10.336,22.073-2.452,36.613-2.628c10.234-0.124,19.856-1.439,37.905-2.102	c16.642-0.61,32.699,1.552,46.009,1.927c12.438,0.351,29.663-8.99,31.532,3.315c0.773,5.093-5.605,3.342-11.211,9.579	c-5.093,5.667-7.59-4.605-12.965-3.832c-8.269,1.189-14.962-8.537-22.937-1.265C126.261,418.271,118.301,411.567,111.873,411.567z ; M110.946,413.652c-2.904-1.137-8.405-2.748-12.446-0.97c-6.099,2.685-7.273,10.358-13.253,8.242	c-7.843-2.775-8.953-5.008-14.546-5.01c-24.653-0.011-4.849,26.507-18.264,26.507c-12.377,0,5.791-33.537-19.422-26.682	c-7.703,2.095-9.806-0.942-9.817-4.173c-0.037-10.336,24.357-4.544,38.897-4.72c10.234-0.124,19.856-1.439,37.905-2.102	c16.642-0.61,32.699,1.552,46.009,1.927c12.438,0.351,28.973-8.865,31.532,3.315c1.449,6.896,0.318,15.624-3.874,15.624	c-7.619,0-1.788-15.192-19.243-7.111c-7.581,3.51-15.963-9.738-26.669,1.066C120.644,426.744,118.381,416.561,110.946,413.652z ; M111.547,413.9c-2.969-0.956-8.775-0.949-13.167-0.5c-14.667,1.5-8.325,16.508-14.667,16.666	c-6.667,0.166-0.167-13.5-13.013-14.151c-30.471-1.545-5.572,46.651-18.987,46.651c-12.377,0,10.333-50.166-18.667-44.5	c-7.835,1.531-9.537-1.417-9.548-4.647c-0.037-10.336,23.675-5.177,38.215-5.353c10.234-0.124,20.618-1.671,38.667-2.333	c16.642-0.61,32.023,1.458,45.333,1.833c12.438,0.351,33.819-8.431,33.199,4.001c-0.532,10.666,0.414,26.166-5.245,25.833	c-7.606-0.447-2.954-31.5-19.243-18.899c-7.985,6.177-17.658-5.969-27.377,5.732C118.88,434.066,121.38,417.067,111.547,413.9z ; M111.547,415.233c-6.667-0.834-9.667,4.667-13.833,3.333c-19.649-6.291-8.158,22.176-14.5,22.334	c-6.667,0.166,2.833-18-13.333-22.167c-29.544-7.615-9.667,43.833-20.167,43.833c-10.333,0,8.004-55.006-16.833-39	c-7.5,4.833-9.508-3.78-9.299-7.004c0.799-12.329,23.592-7.153,38.132-7.329c10.234-0.124,20.238-1.505,38.287-2.167	c16.642-0.61,32.903,1.125,46.213,1.5c12.438,0.351,35.058-5.579,31.863,6.451c-5.532,20.833,1.25,28.216-4.409,27.883	c-7.606-0.447-6.058-37.895-20.62-23.333c-10.167,10.166-15.972-0.747-25,12C119.547,443.568,121.798,416.515,111.547,415.233z"/></path><path fill="#fefae9" d="M10 475.571h180v4H10z"/></svg>
-</div>
-</div>
-<button id="open" data-balloon="Click to Open Card!" data-balloon-length="medium" data-balloon-pos="left" data-balloon-visible>&gt;</button>
-<button id="close" data-balloon="! bɿɒɔ ɘƨolɔ oɈ ʞɔilƆ" data-balloon-length="medium" data-balloon-pos="left" data-balloon-visible>&lt;</button>
-<div class="card-front_inside">
-<br> <br> <br>
-<div class="polaroid">
-<div class="img" style="background-image: url('file.jpeg')"></div>
-</div>
-<div class="shadow"></div>
-</div>
-</div>
-<script  src="js/index.js"></script>
+    <!-- Starry Background -->
+    <div id="starry-bg"></div>
+    
+    <!-- Birthday Header -->
+    <section class="birthday-header">
+        <h1 class="birthday-title">Happy Birthday Shanu 💖</h1>
+        <p class="lead">A special day for the most special person</p>
+        
+        <!-- Balloons -->
+        <div class="balloon" style="left: 10%; background-color: #ff69b4; animation-delay: 0s;"></div>
+        <div class="balloon" style="left: 20%; background-color: #9400d3; animation-delay: 1s;"></div>
+        <div class="balloon" style="left: 30%; background-color: #ff69b4; animation-delay: 2s;"></div>
+        <div class="balloon" style="right: 10%; background-color: #9400d3; animation-delay: 0.5s;"></div>
+        <div class="balloon" style="right: 20%; background-color: #ff69b4; animation-delay: 1.5s;"></div>
+        <div class="balloon" style="right: 30%; background-color: #9400d3; animation-delay: 2.5s;"></div>
+    </section>
+    
+    <!-- Love Story Timeline -->
+    <section class="love-story">
+        <h2 class="text-center mb-5" style="color: #ff69b4;">Our Beautiful Journey</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">When We First Met</div>
+                <div class="timeline-content">
+                    The moment I saw you, something inside me changed. Your smile was like sunshine breaking through clouds.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Our First Conversation</div>
+                <div class="timeline-content">
+                    Talking with you felt so natural, like we'd known each other for years. Your laughter became my favorite sound.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Bonding Moments</div>
+                <div class="timeline-content">
+                    Every shared joke, every late-night talk, every glance - they all added up to something beautiful.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Realizing My Feelings</div>
+                <div class="timeline-content">
+                    I tried to ignore it, but my heart knew the truth. You had become someone irreplaceable in my life.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Today</div>
+                <div class="timeline-content">
+                    On your special day, I want you to know how much you mean to me. You make every day brighter just by being you.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VS Code Editor Confession -->
+    <section class="code-editor">
+        <div class="editor-header">
+            <div class="editor-dots">
+                <div class="editor-dot red"></div>
+                <div class="editor-dot yellow"></div>
+                <div class="editor-dot green"></div>
+            </div>
+            <div class="editor-title">feelings.js</div>
+        </div>
+        <div class="editor-content" id="editor-content">
+            <!-- Code will be typed here by JavaScript -->
+        </div>
+    </section>
+    
+    <!-- Heart Puzzle -->
+    <section class="puzzle-container">
+        <h2 style="color: #ff69b4;">Complete My Heart</h2>
+        <p>Drag the pieces to complete the heart and reveal a message</p>
+        
+        <div class="puzzle-board" id="puzzle-board">
+            <!-- Heart shape overlay (hidden) -->
+            <div class="heart-shape" id="heart-shape"></div>
+            
+            <!-- Puzzle pieces -->
+            <div class="puzzle-piece" id="piece1" style="top: 0; left: 0;"></div>
+            <div class="puzzle-piece" id="piece2" style="top: 0; left: 150px;"></div>
+            <div class="puzzle-piece" id="piece3" style="top: 150px; left: 0;"></div>
+            <div class="puzzle-piece" id="piece4" style="top: 150px; left: 150px;"></div>
+        </div>
+        
+        <div class="puzzle-message" id="puzzle-message">
+            You complete my heart 💖
+        </div>
+    </section>
+    
+    <!-- Secret Button -->
+    <div class="secret-button" id="secret-button">?</div>
+    
+    <!-- Secret Reveal -->
+    <div class="secret-reveal" id="secret-reveal">
+        <div class="secret-content">
+            <h2 style="color: #ff69b4;">You Found My Secret!</h2>
+            <p>Just like this hidden message, my feelings for you are special and meant just for you.</p>
+            <p>You're my favorite person in the whole world 🌸</p>
+            <button class="btn btn-sm btn-outline-light mt-3" id="close-secret">Close</button>
+        </div>
+    </div>
+    
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-toggle" id="music-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/>
+                <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+            </svg>
+        </button>
+        <audio id="bg-music" loop>
+            <!-- Using an online lofi music stream that allows embedding -->
+            <source src="https://stream.laut.fm/lofi" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Starry Background
+        function createStars() {
+            const container = document.getElementById('starry-bg');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random size between 1px and 3px
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                
+                container.appendChild(star);
+            }
+            
+            // Create shooting stars
+            setInterval(() => {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                
+                // Random start position
+                const startX = Math.random() * 100;
+                const startY = Math.random() * 30;
+                shootingStar.style.left = `${startX}%`;
+                shootingStar.style.top = `${startY}%`;
+                
+                // Random animation duration
+                const duration = Math.random() * 2 + 1;
+                shootingStar.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(shootingStar);
+                
+                // Remove after animation completes
+                setTimeout(() => {
+                    shootingStar.remove();
+                }, duration * 1000);
+            }, 2000);
+        }
+        
+        // Love Story Timeline Animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+        
+        // VS Code Editor Typing Effect
+        function typeCode() {
+            const editor = document.getElementById('editor-content');
+            const codeLines = [
+                '<span class="code-keyword">const</span> <span class="code-operator">myFeelings</span> <span class="code-operator">=</span> <span class="code-operator">{</span>',
+                '  <span class="code-operator">to:</span> <span class="code-string">"Shanu 💖"</span><span class="code-operator">,</span>',
+                '  <span class="code-operator">reason:</span> <span class="code-string">"You make my world better every day"</span><span class="code-operator">,</span>',
+                '  <span class="code-operator">confession:</span> <span class="code-string">"I like you. A lot."</span><span class="code-operator">,</span>',
+                '  <span class="code-operator">wish:</span> <span class="code-string">"May your birthday be as wonderful as you are"</span>',
+                '<span class="code-operator">};</span>',
+                '',
+                '<span class="code-keyword">function</span> <span class="code-operator">birthdayWish</span><span class="code-operator">()</span> <span class="code-operator">{</span>',
+                '  <span class="code-keyword">return</span> <span class="code-string">`Happy Birthday, ${myFeelings.to}!`</span><span class="code-operator">;</span>',
+                '<span class="code-operator">}</span>',
+                '',
+                '<span class="code-comment">// You\'re the most amazing person I know</span>',
+                '<span class="code-comment">// I\'m so lucky to have you in my life</span>'
+            ];
+            
+            let currentLine = 0;
+            let currentChar = 0;
+            let typingInterval;
+            
+            function typeNextChar() {
+                if (currentLine >= codeLines.length) {
+                    // Add blinking cursor at the end
+                    const cursor = document.createElement('span');
+                    cursor.className = 'cursor';
+                    editor.appendChild(cursor);
+                    clearInterval(typingInterval);
+                    return;
+                }
+                
+                if (currentChar === 0) {
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'code-line';
+                    editor.appendChild(lineDiv);
+                }
+                
+                const currentLineDiv = editor.lastChild;
+                
+                if (currentChar < codeLines[currentLine].length) {
+                    currentLineDiv.innerHTML += codeLines[currentLine].charAt(currentChar);
+                    currentChar++;
+                } else {
+                    currentLine++;
+                    currentChar = 0;
+                }
+            }
+            
+            typingInterval = setInterval(typeNextChar, 50);
+        }
+        
+        // Heart Puzzle Game - Fixed Version
+        function setupPuzzle() {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            const board = document.getElementById('puzzle-board');
+            const message = document.getElementById('puzzle-message');
+            
+            // Set initial positions (scattered)
+            document.getElementById('piece1').style.transform = 'translate(-50px, -50px)';
+            document.getElementById('piece2').style.transform = 'translate(50px, -50px)';
+            document.getElementById('piece3').style.transform = 'translate(-50px, 50px)';
+            document.getElementById('piece4').style.transform = 'translate(50px, 50px)';
+            
+            // Make pieces draggable
+            pieces.forEach(piece => {
+                piece.draggable = true;
+                
+                // Set background to show part of the heart
+                const clipPath = getPieceClipPath(piece.id);
+                piece.style.clipPath = clipPath;
+                piece.style.backgroundColor = '#ff69b4';
+                
+                piece.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', piece.id);
+                    setTimeout(() => piece.style.opacity = '0.4', 0);
+                });
+                
+                piece.addEventListener('dragend', () => {
+                    piece.style.opacity = '1';
+                });
+            });
+            
+            board.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+            
+            board.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const id = e.dataTransfer.getData('text/plain');
+                const piece = document.getElementById(id);
+                
+                // Calculate drop position relative to board
+                const rect = board.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Position piece
+                piece.style.left = `${x - 75}px`;
+                piece.style.top = `${y - 75}px`;
+                piece.style.transform = 'none';
+                
+                // Check if puzzle is complete
+                if (isPuzzleComplete()) {
+                    message.style.display = 'block';
+                    
+                    // Add confetti effect
+                    for (let i = 0; i < 50; i++) {
+                        createConfetti();
+                    }
+                }
+            });
+            
+            function getPieceClipPath(id) {
+                // These clip paths create quarter-heart shapes
+                switch(id) {
+                    case 'piece1': return 'path("M150,0 L150,150 L0,150 C0,75 75,0 150,0 Z")';
+                    case 'piece2': return 'path("M150,0 L150,150 L300,150 C300,75 225,0 150,0 Z")';
+                    case 'piece3': return 'path("M0,150 L150,150 L150,300 C75,300 0,225 0,150 Z")';
+                    case 'piece4': return 'path("M150,150 L150,300 L300,300 C300,225 225,300 150,300 Z")';
+                    default: return '';
+                }
+            }
+            
+            function isPuzzleComplete() {
+                // Check if all pieces are close to their correct positions
+                const piece1 = document.getElementById('piece1');
+                const piece2 = document.getElementById('piece2');
+                const piece3 = document.getElementById('piece3');
+                const piece4 = document.getElementById('piece4');
+                
+                const piece1Left = Math.abs(parseInt(piece1.style.left));
+                const piece1Top = Math.abs(parseInt(piece1.style.top));
+                
+                const piece2Left = Math.abs(parseInt(piece2.style.left) - 150);
+                const piece2Top = Math.abs(parseInt(piece2.style.top));
+                
+                const piece3Left = Math.abs(parseInt(piece3.style.left));
+                const piece3Top = Math.abs(parseInt(piece3.style.top) - 150);
+                
+                const piece4Left = Math.abs(parseInt(piece4.style.left) - 150);
+                const piece4Top = Math.abs(parseInt(piece4.style.top) - 150);
+                
+                // Allow 20px margin of error for each piece
+                return piece1Left < 20 && piece1Top < 20 &&
+                       piece2Left < 20 && piece2Top < 20 &&
+                       piece3Left < 20 && piece3Top < 20 &&
+                       piece4Left < 20 && piece4Top < 20;
+            }
+            
+            function createConfetti() {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `${Math.random() * 100}%`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.width = `${Math.random() * 10 + 5}px`;
+                confetti.style.height = `${Math.random() * 10 + 5}px`;
+                
+                document.body.appendChild(confetti);
+                
+                // Animate
+                setTimeout(() => {
+                    confetti.style.opacity = '1';
+                    confetti.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg)`;
+                    confetti.style.transition = `all ${Math.random() * 1 + 0.5}s ease-out`;
+                    
+                    // Remove after animation
+                    setTimeout(() => confetti.remove(), 1500);
+                }, 0);
+            }
+        }
+        
+        // Secret Button
+        function setupSecretButton() {
+            const button = document.getElementById('secret-button');
+            const reveal = document.getElementById('secret-reveal');
+            const closeBtn = document.getElementById('close-secret');
+            
+            button.addEventListener('click', () => {
+                reveal.classList.add('show');
+                
+                // Create confetti
+                for (let i = 0; i < 100; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        confetti.style.left = `${Math.random() * 100}%`;
+                        confetti.style.top = `${Math.random() * 100}%`;
+                        confetti.style.backgroundColor = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+                        reveal.appendChild(confetti);
+                        
+                        // Animate
+                        setTimeout(() => {
+                            confetti.style.opacity = '1';
+                            confetti.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 + 100}px) rotate(${Math.random() * 360}deg)`;
+                            confetti.style.transition = `all ${Math.random() * 1 + 0.5}s ease-out`;
+                            
+                            // Remove after animation
+                            setTimeout(() => confetti.remove(), 1500);
+                        }, 0);
+                    }, i * 50);
+                }
+            });
+            
+            closeBtn.addEventListener('click', () => {
+                reveal.classList.remove('show');
+            });
+        }
+        
+        // Music Player with online stream
+        function setupMusicPlayer() {
+            const toggle = document.getElementById('music-toggle');
+            const music = document.getElementById('bg-music');
+            
+            // Try to autoplay (may be blocked by browser)
+            music.volume = 0.3;
+            const playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented, show UI to start
+                    toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>';
+                });
+            }
+            
+            toggle.addEventListener('click', () => {
+                if (music.paused) {
+                    music.play();
+                    toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/><path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/><path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/><path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/></svg>';
+                } else {
+                    music.pause();
+                    toggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>';
+                }
+            });
+        }
+        
+        // Heart Cursor Trail
+        function setupHeartTrail() {
+            document.addEventListener('mousemove', (e) => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-trail';
+                heart.style.left = `${e.clientX}px`;
+                heart.style.top = `${e.clientY}px`;
+                document.body.appendChild(heart);
+                
+                // Remove after animation
+                setTimeout(() => heart.remove(), 1000);
+            });
+        }
+        
+        // Initialize everything when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            animateTimeline();
+            typeCode();
+            setupPuzzle();
+            setupSecretButton();
+            setupMusicPlayer();
+            setupHeartTrail();
+        });
+    </script>
 </body>
 </html>
